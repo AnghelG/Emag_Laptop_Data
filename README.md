@@ -18,8 +18,15 @@ The links used for the web source field have been the first five pages of the Em
 - https://www.emag.ro/laptopuri/p4/c
 - https://www.emag.ro/laptopuri/p5/c
 
-Each time has been selected the first option among the Suggested Tables in the Navigator (Table 1), giving a total of five tables.
+Each time has been selected the first option among the Suggested Tables in the Navigator (Table 1), giving a total of five tables (which have been named Page 1-5 for convenience's sake).
 
+![image 1](https://github.com/AnghelG/Emag_Laptop_Data/blob/95119a7405aec3a37c9c7afca648cd96963aaf6a/Screenshots/1%20Initial%20View.png)
+
+As it can be seen from the preview each table corresponds to one of the Emag's first five laptop category pages. The suggested table added a lot of empty columns and nonsensical data. These fields will have to be removed from each table first, leaving only with the ones with valuable data. Once this step is finished we can combine all the records from the five tables into one through appending. It is important to make sure that the fields from each table in order to properly append them. The tables will be appended into a new table called Data by going through
+
+_**Home -> Append Queries -> Append Queries as New**_. 
+
+![image 2](https://github.com/AnghelG/Emag_Laptop_Data/blob/95119a7405aec3a37c9c7afca648cd96963aaf6a/Screenshots/2%20Appended.png)
 
 # Dashboarding, statistics and exploratory data analysis using MS Excel
 
