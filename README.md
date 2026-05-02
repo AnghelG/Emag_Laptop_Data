@@ -28,6 +28,20 @@ _**Home -> Append Queries -> Append Queries as New**_.
 
 ![image 2](https://github.com/AnghelG/Emag_Laptop_Data/blob/95119a7405aec3a37c9c7afca648cd96963aaf6a/Screenshots/2%20Appended.png)
 
+As it can be noticed we're left with only four columns of relevant data: full name, price, rating, and number of reviews. In order for the dataset to be loaded into a spreadsheet we first have to ensure data integrity through the transformation process. 
+
+From the right to the left we first oberve that the last column (Column12) is of type text. Even though it represents the number of reviews, the entries are recorded as "_number_ review-uri" or "_number_ de review-uri". To get rid of this we can split the column by the space delimiter (" "), giving us 3 new columns with the first containing the actual number of reviews and then removing the latter two.
+
+The second column (Column11) contains the rating given by the user to the specific laptop in the dataset, being of type decimal
+
+The third column (Column2) contains the price of each laptop but is of type text as the entries are recorded as "_number_ lei". We can correct this by splitting the column by the delimiter (" ") giving us two columns: the actual price and the "Lei" coulumns latter of which will be removed. It's important to note that this alone won't change the remaining column into the desired data type (decimal) as the prices are recorded using the comma number formatting for decimals rather than the point based one which Power Query uses. This can be changed within Power Query by changing the datatype using locale setting, although another option would be changing the values within the entries through replacing them. We can change the "." to "," and "," to "." by first using a placeholder like "^" (as replacing one with the other instead of the placeholder would turn both of them of the same type).
+
+The last column (Column1) Contains the full name of the product as it appears on the Emag web page. Although serving as a unique identifier for each row the names are too long and difficult to read in which case there will be an index column added for this purpose. One thing that can be observed though is that the brand (or manufacturer) of each laptop is mentioned within the first three words of the name. In order to extract this information the column is going to be sliptted by the space delimiter (" ") and all but the first free resulting columns will be removed.
+
+![image 3](https://github.com/AnghelG/Emag_Laptop_Data/blob/76c8434c8f7714b4f8e074d90a447e142aa6f985/Screenshots/3%20Cleaned.png)
+
+
+
 # Dashboarding, statistics and exploratory data analysis using MS Excel
 
 # Conclusions
