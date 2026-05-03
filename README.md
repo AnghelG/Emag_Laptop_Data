@@ -18,7 +18,7 @@ The links used for the web source field have been the first five pages of the Em
 - https://www.emag.ro/laptopuri/p4/c
 - https://www.emag.ro/laptopuri/p5/c
 
-Each time has been selected the first option among the Suggested Tables in the Navigator (Table 1), giving a total of five tables (which have been named Page 1-5 for convenience's sake).
+Each time the first option among the Suggested Tables in the Navigator (Table 1) has been selected, giving a total of five tables (which have been named Page 1-5 for convenience's sake).
 
 ![image 1](https://github.com/AnghelG/Emag_Laptop_Data/blob/95119a7405aec3a37c9c7afca648cd96963aaf6a/Screenshots/1%20Initial%20View.png)
 
@@ -36,14 +36,34 @@ The second column (Column11) contains the rating given by the user to the specif
 
 The third column (Column2) contains the price of each laptop but is of type text as the entries are recorded as "_number_ lei". We can correct this by splitting the column by the delimiter (" ") giving us two columns: the actual price and the "Lei" coulumns latter of which will be removed. It's important to note that this alone won't change the remaining column into the desired data type (decimal) as the prices are recorded using the comma number formatting for decimals rather than the point based one which Power Query uses. This can be changed within Power Query by changing the datatype using locale setting, although another option would be changing the values within the entries through replacing them. We can change the "." to "," and "," to "." by first using a placeholder like "^" (as replacing one with the other instead of the placeholder would turn both of them of the same type).
 
-The last column (Column1) Contains the full name of the product as it appears on the Emag web page. Although serving as a unique identifier for each row the names are too long and difficult to read in which case there will be an index column added for this purpose. One thing that can be observed though is that the brand (or manufacturer) of each laptop is mentioned within the first three words of the name. In order to extract this information the column is going to be sliptted by the space delimiter (" ") and all but the first free resulting columns will be removed.
+The last column (Column1) Contains the full name of the product as it appears on the Emag web page. Although serving as an unique identifier for each row the names are too long and difficult to read in which case there will be an index column added for this purpose. One thing that can be observed though is that the brand (or manufacturer) of each laptop is mentioned within the first three words of the name. In order to extract this information the column is going to be splitted by the space delimiter (" ") and all but the first free resulting columns will be removed.
 
 ![image 3](https://github.com/AnghelG/Emag_Laptop_Data/blob/76c8434c8f7714b4f8e074d90a447e142aa6f985/Screenshots/3%20Cleaned.png)
 
+Now with this transformation added, we will try to combine the three columns (hightlighted in green) by unpivoting them, resulting in the tripling of records as shown below.
+
+![image 4](https://github.com/AnghelG/Emag_Laptop_Data/blob/4d2236104859a9151d76a207f8007e2fda155235/Screenshots/4.1%20Unpivoted.png)
+
+We will now transform the resulting dataset so that only the records containing a valid brand name for each unique identifier are left by merging it with a list of brands (provided through brands.xlsx, where all the laptop manufacturer options from emag.ro have been collected). By using the inner join merge on the unpivoted column with the brand name list we ensure that only the records matching the ones in the brand name list are left in the dataset. 
+
+![image 5](https://github.com/AnghelG/Emag_Laptop_Data/blob/4d2236104859a9151d76a207f8007e2fda155235/Screenshots/5%20Merged.png)
+
+Thus after merging queries as new, changing column names to accurately describe the values contained and removing any potential null values/errors we will be left with a complete laptop dataset which has been named Merged Data
+
+![!image 6](https://github.com/AnghelG/Emag_Laptop_Data/blob/4b2dd8c0fcbd2f9f976b7e6cf1fb30f40e9022c2/Screenshots/6.%20Merged%20Data%20PQ.png)
+
+The resulting dataset is ready to be exported into MS Excel by selecting the Close & Load option in the Home tab, thus completing the ETL process.
 
 
 # Dashboarding, statistics and exploratory data analysis using MS Excel
 
+We will now be using the dataset which has been loaded as a table into the Merged Data sheet in the brands.xlsx file in order to build an interractive dashboard and gather insights about the available data.
+
+![image 7](https://github.com/AnghelG/Emag_Laptop_Data/blob/4b2dd8c0fcbd2f9f976b7e6cf1fb30f40e9022c2/Screenshots/7%20Merged%20Data.png)
+
+In order to build the charts which will comprise the dashboard, we first have to organize the relevant data into Pivot Tables. We want to group the laptops available in the dataset by brand/manufacturer and have a view of how many laptops of each manufacturer are there given a specific price range, what is the number of laptops from each brand and what is the average rating of those. Once each objective has been established, we can create the corresponding pivot tables as follows:
+
+![image 8](https://github.com/AnghelG/Emag_Laptop_Data/blob/4b2dd8c0fcbd2f9f976b7e6cf1fb30f40e9022c2/Screenshots/9%20Pivot%20Tables.png)
 # Conclusions
 
 # Downloading and usage
