@@ -36,7 +36,7 @@ The second column (Column11) contains the rating given by the user to the specif
 
 The third column (Column2) contains the price of each laptop but is of type text as the entries are recorded as "_number_ lei". We can correct this by splitting the column by the delimiter (" ") giving us two columns: the actual price and the "Lei" coulumns latter of which will be removed. It's important to note that this alone won't change the remaining column into the desired data type (decimal) as the prices are recorded using the comma number formatting for decimals rather than the point based one which Power Query uses. This can be changed within Power Query by changing the datatype using locale setting, although another option would be changing the values within the entries through replacing them. We can change the "." to "," and "," to "." by first using a placeholder like "^" (as replacing one with the other instead of the placeholder would turn both of them of the same type).
 
-The last column (Column1) Contains the full name of the product as it appears on the Emag web page. Although serving as an unique identifier for each row the names are too long and difficult to read in which case there will be an index column added for this purpose. One thing that can be observed though is that the brand (or manufacturer) of each laptop is mentioned within the first three words of the name. In order to extract this information the column is going to be splitted by the space delimiter (" ") and all but the first free resulting columns will be removed.
+The last column (Column1) Contains the full name of the product as it appears on the Emag web page. Although serving as a unique identifier for each row the names are too long and difficult to read in which case there will be an index column added for this purpose. One thing that can be observed though is that the brand (or manufacturer) of each laptop is mentioned within the first three words of the name. In order to extract this information the column is going to be splitted by the space delimiter (" ") and all but the first free resulting columns will be removed.
 
 ![image 3](https://github.com/AnghelG/Emag_Laptop_Data/blob/76c8434c8f7714b4f8e074d90a447e142aa6f985/Screenshots/3%20Cleaned.png)
 
@@ -55,7 +55,7 @@ Thus after merging queries as new, changing column names to accurately describe 
 The resulting dataset is ready to be exported into MS Excel by selecting the Close & Load option in the Home tab, thus completing the ETL process.
 
 
-# Dashboarding, statistics and exploratory data analysis using MS Excel
+# Dashboarding and exploratory data analysis using MS Excel
 
 We will now be using the dataset which has been loaded as a table into the Merged Data sheet in the brands.xlsx file in order to build an interractive dashboard and gather insights about the available data.
 
@@ -64,6 +64,13 @@ We will now be using the dataset which has been loaded as a table into the Merge
 In order to build the charts which will comprise the dashboard, we first have to organize the relevant data into Pivot Tables. We want to group the laptops available in the dataset by brand/manufacturer and have a view of how many laptops of each manufacturer are there given a specific price range, what is the number of laptops from each brand and what is the average rating of those. Once each objective has been established, we can create the corresponding pivot tables as follows:
 
 ![image 8](https://github.com/AnghelG/Emag_Laptop_Data/blob/4b2dd8c0fcbd2f9f976b7e6cf1fb30f40e9022c2/Screenshots/9%20Pivot%20Tables.png)
+
+These pivot tables are going to be stored in the Pivot Tables sheet in the project.xlsx file and will be used in order to create an interractive dashboard which will be stored on a separate sheet named Pivot Dashboard
+
+![image 9](https://github.com/AnghelG/Emag_Laptop_Data/blob/c7757b2613a5ee3eec31f845754a40421513bc14/Screenshots/8%20Pivot%20Dashboard.png)
+
+The dashboard offers insights into the dataset used to represent the Emag laptop offerings. All the charts comprising the dashboard are connected to a slicer which lets the user select the brands which they're interested in and seeing how well they are rated on average compared to other brands, what's their share among Emag's first laptop offering pages and what their price distribution is.
+
 # Conclusions
 
 # Downloading and usage
