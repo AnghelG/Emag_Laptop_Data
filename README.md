@@ -69,8 +69,9 @@ These pivot tables are going to be stored in the Pivot Tables sheet in the proje
 
 ![image 9](https://github.com/AnghelG/Emag_Laptop_Data/blob/c7757b2613a5ee3eec31f845754a40421513bc14/Screenshots/8%20Pivot%20Dashboard.png)
 
-The dashboard offers insights into the dataset used to represent the Emag laptop offerings. All the charts comprising the dashboard are connected to a slicer which lets the user select the brands which they're interested in and seeing how well they are rated on average compared to other brands, what's their share among Emag's first laptop offering pages and what their price distribution is.
-
 # Conclusions
+
+The final dashboard offers insights into the dataset used to represent the Emag laptop offerings. All the charts comprising the dashboard are connected to a slicer which lets the user select the brands they're interested in and seeing how well they are rated on average compared to other brands, what's their share among Emag's first laptop offering pages and what their price distribution is. The dashboard uses a dynamic data source which means any changes made by Emag on their featured laptops pages will be included upon refreshing the data.  
+
 
 # Downloading and usage
